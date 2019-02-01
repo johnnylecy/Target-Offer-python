@@ -7,5 +7,5 @@ import numpy as np
 """
 """
 分析:排序链表，重复节点在一起，判断node.data和node。next是否相等，
-继续next所得node.data如果相等则继续next，否则delete.yongC语言来做就是熟悉的“三指针”套路。
+继续next所得node.data如果相等则继续next，否则delete.用C语言来做就是熟悉的“三指针”套路。
 """
