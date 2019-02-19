@@ -31,6 +31,10 @@ class Node():
         # 就会找到这个方法，并将返回值打印出来
         # 类似方法：__str__()
         return str(self.v)
+'''
+思路2：反转链表
+'''
+
 node1 = Node(0)
 node2 = Node(1)
 node3 = Node(2)
