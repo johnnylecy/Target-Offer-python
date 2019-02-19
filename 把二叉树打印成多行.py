@@ -4,26 +4,26 @@
 '''
 '''
 分析：
-计算节点深度，相同深度节点汇集, O(logn)
+双队列，先进先出 list append()
+利用列表存储二叉树每一层的节点, 在读取列表中当前层节点的同时，存储下一层的节点以备用，以此类推
 '''
-class TreeNode():
-    def __init__(self, x):
-        self.x = x
-        self.left = None
-        self.right = None
-        self.depth = None
-def getdepth(node):
-    depth = 0
-    while not node:
-        depth += 1
-        getdepth(node.left)
-        getdepth(node.right)
-    return depth
-def up2downprint(node):
-    depth = getdepth(node)
-    for i in range(depth):
-        up2down_list = [node.x if node.depth==i]
-        print(up2down_list)
+class Solution():
+    def layerorder(self, pRoot):
+        if not pRoot:
+            return None
+        else:
+            layer = [pRoot]
+            memory = []
+            queue = []
+            while layer:
+                for node in layer:
+                    if node.left:
+                        queue.append(node.left)
+                    if node.right:
+                        queue.append(node.right)
+                    memery.append(queue)
+                layer = queue
+        return memory
 
 
 
