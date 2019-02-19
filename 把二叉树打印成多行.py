@@ -13,17 +13,18 @@ class Solution():
             return None
         else:
             layer = [pRoot]
-            memory = []
-            queue = []
+            results = []
+            nextlayer = []
             while layer:
                 for node in layer:
+                    results.append(node.val)
                     if node.left:
-                        queue.append(node.left)
+                        nextlayer.append(node.left)
                     if node.right:
-                        queue.append(node.right)
-                    memory.append(queue)
-                layer = queue
-        return memory
+                        nextlayer.append(node.right)
+                    
+                layer = nextlayer
+        return results
 
 
 

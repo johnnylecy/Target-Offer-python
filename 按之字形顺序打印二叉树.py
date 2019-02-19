@@ -5,57 +5,31 @@
 '''
 '''
 分析：
-按层打印树属于BFS，用队列解决；
+
+用两个栈实现。
+python则偶数行逆序reverse()
 本题要求之字打印，即奇数行左序，偶数行右序
-(未完待续)
+
 
 '''
-class TreeNode():
-    def __init__(self, val):
-        self.val = val
-        self.left = None
-        self.right = None
 class Solution():
-    def zprint(self, node):
-        queue = []
-        layer = 0
-        if not node:
-            print(queue)
-        elif node.left or node.right:
-            self.leftrecur(node, queue)
-            if layer % 2 != 0:
-                self.leftrecur(node, queue)
-            elif layer % 2 == 0:
-                self.rightrecur(node, queue)
-            
-
-    def leftrecur(self, node, queue):
-        tree_list = []
-        if node:
-            queue.append(node)
-            temp = node
-            if temp.left:
-                queue.append(node.left, queue)
-            if temp.right:
-                queue.append(node.right, queue)
-            tree_list.append(queue)
-
-
-    def rightrecur(self, node, queue):
-        if node:
-            queue.append(node)
-            
-            if queue[0].right:
-                queue.append(node.right, queue)
-            if queue[0].left:
-                queue.append(node.left, queue)
-            print(queue[0].val)
-            queue.pop(0)
-            self.leftrecur(queue[0], queue)
-
-
-
-
+    def zigzag(self, pRoot):
+        if not pRoot:
+            return None
+        else:
+            layer = [pRoot]
+            results = []
+            nextlayer = []
+            time = 1
+            for node in layer:
+                results.append(node.val)
+                if node.left:
+                    nextlayer.append(node.left)
+                if node.right:
+                    nextlayer.append(node.right)
+                if time % 2 == 0:
+                    results.reverse()
+        return results
 
 
 
