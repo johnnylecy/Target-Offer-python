@@ -21,7 +21,7 @@ class Solution():
                         queue.append(node.left)
                     if node.right:
                         queue.append(node.right)
-                    memery.append(queue)
+                    memory.append(queue)
                 layer = queue
         return memory
 
