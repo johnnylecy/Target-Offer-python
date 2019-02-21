@@ -7,19 +7,36 @@
 并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数（从1 到 n 中1出现的次数）。
 '''
 """
-分析：递归，先确定数量级，然后处置零头
+分析：分治，先确定数量级，然后处置零头；将n分治为基元问题：n是10^i多项式形式。
+如347包含k1个1，k2个10，k3个100。各个击破.时间O(logn)，空间O(logn)
 
 """
 #coding:utf-8
-class Slt():
-    def method(self, n):
-        m = 0
-        result = 1
-        while m < n + 1:
-            if n % 10 ** m != 0:
-                m += 1
+class Solution():
+    def numof1_n(self, n):
+        ones = 0
+        k = 0
+        while n // (10 ** (k + 1)):
+            k += 1
+            print(k)
+        while k:
+            w = n // 10 ** k
+            n = n - w * 10 ** k
+            ones += w * 10 ** (k - 1)
+            k -= 1
+        if n > 0:
+            ones += 1
+        return ones
+    
 
-        for i in m:
-            result += 1 * 10**k +1
+
+n = 3478
+S = Solution()
+print(S.numof1_n(n))
+        
+
+
+
+
         
         
