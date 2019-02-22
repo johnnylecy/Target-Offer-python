@@ -17,6 +17,6 @@ class Solution:
 
         result = self.method(base, exponent >> 1)
         result *= result
-        if (exponent & 0x1) == 1:
+        if (exponent & 0x1) == 1: #0x是16进展前缀
             result *= base
         return result
