@@ -12,15 +12,21 @@ class Solution():
     def FindContinuousSequence(self, s):
         beg = 1
         end = 2
+        mid = (s + 1) // 2
         out = []
-        while end and beg:
-            out.extend(list(range(beg, end + 1)))
-            ssum = sum(out)
+        ssum = beg + end
+        while beg < mid:           
             if ssum == s:
-                return out
-            if ssum < s:
-                end += 1
-            if ssum > s:
-                beg -= 1
+                out.append(list(range(beg, end + 1)))
+            while ssum > s:
+                ssum -= beg
+                beg += 1
+                if ssum == s:
+                    out.append(list(range(beg, end + 1)))
+            
+            end += 1
+            ssum += end
+        return out
+    
 s= Solution()
 print(s.FindContinuousSequence(100))
