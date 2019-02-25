@@ -6,5 +6,21 @@
 现在把问题交给你,你能不能也很快的找出所有和为S的连续正数序列? Good Luck!
 '''
 '''
-贪心算法：
+贪心算法：首位双指针，窗口思想：大于s去掉beg,小于s加入end。
 '''
+class Solution():
+    def FindContinuousSequence(self, s):
+        beg = 1
+        end = 2
+        out = []
+        while end and beg:
+            out.extend(list(range(beg, end + 1)))
+            ssum = sum(out)
+            if ssum == s:
+                return out
+            if ssum < s:
+                end += 1
+            if ssum > s:
+                beg -= 1
+s= Solution()
+print(s.FindContinuousSequence(100))
