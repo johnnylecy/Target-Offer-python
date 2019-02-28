@@ -1,8 +1,3 @@
-def quick_sort(lst, l ,r):
-    if l < r:
-        pivot = partition(lst, l, r)
-        quick_sort(lst, l, pivot)
-        quick_sort(lst, pivot+1, r)
 
 
 def partition(lst, l, r):
