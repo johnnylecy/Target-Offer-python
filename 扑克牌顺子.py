@@ -10,8 +10,23 @@ LL今天心情特别好,因为他去买了一副扑克牌,
 为了方便起见,你可以认为大小王是0。
 '''
 '''
-概率题
+德州扑克经验
 '''
 class Solution():
     def IsContinuous(self, cards):
-        
+        if len(cards) < 5:
+            return False
+        num_0 = cards.count(0)
+        cards = sorted(cards)
+        _cards = cards[num_0:]
+        if len(set(_cards)) < len(_cards):
+            return False
+        min_card = min(_cards)
+        max_card = max(_cards)
+        d = max_card - min_card
+        if d > 4:
+            return False
+        return True
+
+S= Solution()
+print(S.IsContinuous([0, 2, 0, 2, 6]))
