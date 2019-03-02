@@ -9,6 +9,7 @@ import numpy as np
 分析:排序链表，重复节点在一起，判断node.data和node.next是否相等，
 继续next所得node.data如果相等则继续next，否则delete.用C语言来做就是熟悉的“三指针”套路。
 """
+<<<<<<< HEAD
 class ListNode():
 def __init__(self, x):
     self.val = x
@@ -34,4 +35,20 @@ class Solution():
             elif nextnode.next:
                 curnode = nextnode
                 nextnode = nextnode.next
+=======
+class Solution():
+    def deleteDuplication(self, pHead):
+        if pHead == None: return
+        prenode = None
+        curnode = pHead
+        nextnode = curnode.next
+        if nextnode != None:
+            if curnode == nextnode:
+                nextnode = nextnode.next
+                curnode.next = nextnode
+            else:
+                curnode = nextnode
+                nextnode = nextnode.next
+                
+>>>>>>> 1eb09224cff16575d2cfe43128330d2148d760e5
 
