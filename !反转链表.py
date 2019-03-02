@@ -7,18 +7,22 @@
 '''
 class Solution():
     def ReverseList(self, pHead):
-        reverseHead = None
-        pNode = pHead
-        pPrev = None
-        if pHead:
-            pNext = pNode.next
-            if not pHead.next:
-                reverseHead = pHead
-            else:
-                pNode.next = pPrev
-                pPrev = pNode
-                pNext = pNode
-        return reverseHead
+        if pHead == None or pHead.next == None:
+           return pHead
+        pre = None
+        cur =pHead
+        while cur:
+            tmp = cur.next
+            cur.next = pre
+            pre = cur
+            cur = tmp
+        return pre
+
+    
+
+
+
+
 '''
 方法2：递归
 '''
