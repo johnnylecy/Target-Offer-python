@@ -10,7 +10,7 @@ class Solution():
         reverseHead = None
         pNode = pHead
         pPrev = None
-        if not pHead:
+        if pHead:
             pNext = pNode.next
             if not pHead.next:
                 reverseHead = pHead
