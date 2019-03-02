@@ -20,17 +20,18 @@ def solution(arr):
         return 0
     start = 0
     end = h -1 
-    mid = (start + end) // 2
-    while not (arr[mid]<= arr[start] and arr[mid]>= arr[end]):
-        if arr[mid] >= arr[start]:
-            end = mid
-        elif arr[mid] < arr[start]:
-            start = mid
+    while start < end:
         mid = (start + end) // 2
+        if arr[mid] > arr[start]:
+            start = mid + 1  
+        else:
+            end = mid - 1
+        
+        print(start, end, mid)
     return arr[mid]
 
 
 
 if __name__ == '__main__':
-    s = solution(np.array([4, 6, 12, 13, 26, 1, 2, 3, 4]))
+    s = solution(np.array([4, 6, 12, 13, 0, 1, 2, 3]))
     print(s)

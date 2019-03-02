@@ -15,19 +15,23 @@ import numpy as np
 有序数组，从左下角开始查找，复杂度为O(m + n),比二分查找O(mlogn)要好一些
 
 """
-def find(arr, target):
-    arr = np.asarray(arr)
-    (h, w) = arr.shape
-    start = [h-1, 0]
-    while start[0] > 0 and start[1] < w:
-        if arr[start[0], start[1]] < target:
-            start[1] += 1            
-        elif arr[start[0], start[1]] > target:
-            start[0] -= 1
-        else: return True
+def find(arr, a):
+    h, w = arr.shape
+    i = 0
+    j = w -1
+    while i > 0 and j < h:
+        if arr[i, j] == a:
+            return True
+        if arr[i, j] > a:
+            j -= 1
+        if arr[i, j] < a:
+            i += 1
+        print(i, j)
     return False
+
+
 if __name__ == '__main__':
-    find(np.ones((3000, 10000)), 2)
+    print(find(np.ones((2, 10000)), 2))
 
     
 
