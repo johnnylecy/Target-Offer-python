@@ -18,17 +18,18 @@ class Solution():
         self.paths = []
         self.expectNumber = expectNumber
         if root == None:
-            return  
+            pass 
         else:
             self.DFS(root, [root.val])
+        return self.paths
 
     def DFS(self, root, path):
         if not root.left and not root.right and sum(path) == self.expectNumber:
             self.paths.append(path)
         if root.left and sum(path) < self.expectNumber:
-            self.DFS(root.left, path.extend(root.left.val))
+            self.DFS(root.left, path + [root.left.val])
         if root.right and sum(path) < self.expectNumber:
-            self.DFS(root.right, path.extend(root.right.val))
+            self.DFS(root.right, path + [root.right.val])
             
 
 
